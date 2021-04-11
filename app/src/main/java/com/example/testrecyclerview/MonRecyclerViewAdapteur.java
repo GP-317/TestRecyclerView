@@ -1,10 +1,12 @@
 package com.example.testrecyclerview;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -46,8 +48,10 @@ public class MonRecyclerViewAdapteur
             tv_auxiliaire = (TextView) itemView.findViewById(R.id.tv_auxiliaire);
             itemView.setOnClickListener(this);
         }
+
         @Override
         public void onClick(View v) {
+            ((CardView)v).setCardBackgroundColor(Color.rgb(255,0,0));
             detecteurDeClicSurRecycler.clicSurRecyclerItem(getAdapterPosition(), v);
         }
     }

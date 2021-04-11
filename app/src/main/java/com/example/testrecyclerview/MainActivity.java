@@ -2,6 +2,7 @@ package com.example.testrecyclerview;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,7 +33,13 @@ public class MainActivity extends AppCompatActivity implements DetecteurDeClicSu
         mRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new MonRecyclerViewAdapteur(getDataSource());
         mRecyclerView.setAdapter(mAdapter);
+
+//        RecyclerView.ItemDecoration itemDecoration =
+//                new DividerItemDecoration(this, R.drawable.divider);
+//        mRecyclerView.addItemDecoration(itemDecoration);
     }
+
+
 
     private ArrayList<Donnee> getDataSource() {
         ArrayList results = new ArrayList<Donnee>();
