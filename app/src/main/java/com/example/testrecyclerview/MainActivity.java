@@ -1,6 +1,7 @@
 package com.example.testrecyclerview;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,12 +9,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements DetecteurDeClicSurRecycler{
     private RecyclerView mRecyclerView;
     private MonRecyclerViewAdapteur mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    CoordinatorLayout mcoordinatorLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements DetecteurDeClicSu
         setContentView(R.layout.activity_main);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        mcoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
+
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -44,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements DetecteurDeClicSu
     }
 
     public void clicSurRecyclerItem(int position, View v) {
-        Toast.makeText(getApplicationContext(), "Clic sur l'item "+position, Toast.LENGTH_LONG).show();
+        Snackbar.make(mcoordinatorLayout, " Clic sur l'item "
+                + position, Snackbar.LENGTH_LONG).show();
     }
 }
